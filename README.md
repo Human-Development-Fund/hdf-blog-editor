@@ -76,3 +76,5 @@ Do not edit files inside `dist/`. Change the canonical skill, run the release ch
 Version **1.0.0**.
 
 The skill is an editorial assistant, not an authority for legal, safeguarding, religious or factual approval. HDF remains responsible for final publication decisions.
+
+Licensed under the [Apache License 2.0](LICENSE).

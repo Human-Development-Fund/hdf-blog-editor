@@ -13,3 +13,4 @@
 - Added a canonical ten-section Full Retrofit template.
 - Added deterministic checks for retrofit structure, preview/HTML heading parity, structural markup, copied ChatGPT wrappers, tracking parameters and empty link targets.
 - Added ChatGPT, Claude and Antigravity release packages, documentation and automated tests.
+- Released the project under Apache License 2.0.
