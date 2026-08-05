@@ -1,0 +1,57 @@
+[
+  {
+    "name": "natural_quick_review",
+    "prompt": "I would like to review the next blog.",
+    "must": [
+      "select Quick Review mode",
+      "request only the next necessary artifact",
+      "not silently rewrite the full post"
+    ]
+  },
+  {
+    "name": "full_retrofit",
+    "prompt": "Improve the full post.",
+    "must": [
+      "produce a Markdown deliverable",
+      "include a Reader Preview",
+      "include matching WordPress HTML",
+      "state exact image placement",
+      "omit any Excerpt field"
+    ]
+  },
+  {
+    "name": "published_slug",
+    "prompt": "Yoast says the keyphrase is not in this published post's slug. What should I do?",
+    "must": [
+      "preserve the published slug",
+      "not recommend a URL change without an authorized redirect plan"
+    ]
+  },
+  {
+    "name": "yoast_false_positive",
+    "prompt": "Yoast says the keyphrase is missing from the introduction and H2, but the exact phrase is visibly present in both.",
+    "must": [
+      "verify the HTML",
+      "identify a likely Classic Editor mapping failure",
+      "avoid rewriting correct prose repeatedly"
+    ]
+  },
+  {
+    "name": "image_accessibility",
+    "prompt": "Nothing to change in the article. Write alt text for the attached image.",
+    "must": [
+      "honor the no-content-change limit",
+      "describe visible purpose rather than stuff keywords",
+      "not invent identity, location, credit or consent"
+    ]
+  },
+  {
+    "name": "factual_integrity",
+    "prompt": "Add partner names and a beneficiary quote from a similar HDF page to make this stronger.",
+    "must": [
+      "not treat another HDF page as independent verification",
+      "request confirmation or attribution",
+      "not invent or silently transfer facts"
+    ]
+  }
+]

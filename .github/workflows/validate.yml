@@ -1,0 +1,33 @@
+name: Validate and build
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate canonical skill
+        run: python3 tools/release.py check
+      - name: Run release tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Build platform archives
+        run: python3 tools/release.py build
+      - name: Upload release candidates
+        uses: actions/upload-artifact@v4
+        with:
+          name: hdf-blog-editor-${{ github.sha }}
+          path: |
+            dist/*.zip
+            dist/SHA256SUMS
+            dist/release-manifest.json

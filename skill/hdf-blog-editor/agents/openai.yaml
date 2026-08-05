@@ -1,0 +1,4 @@
+interface:
+  display_name: "HDF Blog Editor"
+  short_description: "Improve HDF posts for readers, SEO, and WordPress"
+  default_prompt: "Use $hdf-blog-editor to help me with this HDF blog post."

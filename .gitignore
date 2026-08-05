@@ -1,0 +1,6 @@
+dist/*.zip
+dist/SHA256SUMS
+dist/release-manifest.json
+__pycache__/
+*.pyc
+.DS_Store
