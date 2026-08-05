@@ -24,7 +24,7 @@ jobs:
       - name: Build platform archives
         run: python3 tools/release.py build
       - name: Upload release candidates
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: hdf-blog-editor-${{ github.sha }}
           path: |
