@@ -5,6 +5,7 @@
     "must": [
       "select Quick Review mode",
       "request only the next necessary artifact",
+      "ask for the current WordPress post as a full-page PDF/screenshot or Code-view HTML when no post material is supplied",
       "not silently rewrite the full post"
     ]
   },

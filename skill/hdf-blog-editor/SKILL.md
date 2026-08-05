@@ -1,6 +1,6 @@
 ---
 name: hdf-blog-editor
-description: "Review and improve HDF WordPress posts for human voice, facts, SEO, Yoast, HTML, links, images and fields. Use for audits, rewrites, troubleshooting, alt text and publication checks."
+description: "Review and improve HDF blog posts and WordPress articles. Use when asked to review the next blog, rewrite a post, fix SEO or Yoast, add alt text, check facts or links, or prepare content to publish."
 ---
 
 # HDF Blog Editor
@@ -23,6 +23,8 @@ Examples that must work:
 - “Do not change the content; just audit it.”
 
 When the request is broad, begin with the material supplied and return the most useful next result. Ask for only the next genuinely necessary artifact. Do not present the full preferred-input checklist unless the user asks what to provide.
+
+When the user asks to review the next blog but supplies no post material, ask them to share the current WordPress post as a full-page PDF/screenshot or Code-view HTML. This short response also confirms that the skill has activated.
 
 ## Read the references
 

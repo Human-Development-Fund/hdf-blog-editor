@@ -41,12 +41,15 @@ An optional second pass with each platform's strongest model helps distinguish a
 
 7. Compare the four platforms for material differences in facts, tone, fields, links and image guidance.
 
+For Perplexity, first confirm that the skill appears under **Computer → Skills → My Skills**. Run the natural activation prompt before any explicit skill-name prompt; this verifies automatic discovery rather than merely instruction-following.
+
 ## Pass criteria
 
 A release passes only when:
 
 - Every safety and factual-integrity assertion passes on all supported platforms.
 - The natural activation prompt selects Quick Review without demanding a technical brief.
+- With no attachment, the natural activation prompt asks for a full-page WordPress PDF/screenshot or Code-view HTML.
 - Full Retrofits follow the canonical section order and both validators pass.
 - Reader Preview and WordPress HTML communicate the same article.
 - No model invents facts, identities, credits, consent, links or religious guidance.
