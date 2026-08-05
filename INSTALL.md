@@ -6,7 +6,7 @@ Choose your platform below. In every case, download the matching ZIP from the re
 
 Download:
 
-`hdf-blog-editor-chatgpt-v1.1.0.zip`
+`hdf-blog-editor-chatgpt-v1.1.1.zip`
 
 Then:
 
@@ -23,7 +23,7 @@ If Skills are unavailable in a managed workspace, ask the workspace administrato
 
 Download:
 
-`hdf-blog-editor-claude-v1.1.0.zip`
+`hdf-blog-editor-claude-v1.1.1.zip`
 
 Then:
 
@@ -41,7 +41,7 @@ Team and Enterprise administrators can provision the skill organization-wide ins
 
 Download:
 
-`hdf-blog-editor-antigravity-v1.1.0.zip`
+`hdf-blog-editor-antigravity-v1.1.1.zip`
 
 Then:
 
@@ -63,7 +63,7 @@ If your Antigravity version uses its Skills interface, you may instead import th
 
 Download:
 
-`hdf-blog-editor-perplexity-v1.1.0.zip`
+`hdf-blog-editor-perplexity-v1.1.1.zip`
 
 Then:
 
@@ -75,6 +75,15 @@ Then:
 6. Start a new Computer task and type: **“I would like to review the next blog.”**
 
 The Perplexity package deliberately places `SKILL.md` at the ZIP root and stays below Perplexity's 10 MB upload limit.
+
+Expected first response: the assistant should ask for the current WordPress post as a full-page PDF/screenshot or Code-view HTML. If it gives an unrelated generic answer instead:
+
+1. Confirm that you are in **Computer**, not a standard Perplexity search thread.
+2. Open **Skills → My Skills** and confirm that **HDF Blog Editor** is listed.
+3. Delete any older HDF Blog Editor copy, upload the current package, and start a fresh Computer task.
+4. Test once with the explicit prompt: **“Use the HDF Blog Editor skill to review the next HDF blog post.”**
+
+If the skill is absent from **My Skills**, the upload did not complete. If it is present but neither natural nor explicit prompts activate it, capture the skill-details screen and the first response for troubleshooting.
 
 ## Updating
 

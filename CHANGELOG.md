@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1 - 2026-08-05
+
+- Expanded the discovery description with natural HDF blog, Yoast and alt-text trigger phrases.
+- Added a deterministic activation regression test.
+- Added a visible first-response expectation and troubleshooting steps for Perplexity Computer.
+
 ## 1.1.0 - 2026-08-05
 
 - Added a Perplexity Computer package with `SKILL.md` at the ZIP root.

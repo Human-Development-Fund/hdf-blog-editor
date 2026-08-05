@@ -58,6 +58,12 @@ class ReleaseTests(unittest.TestCase):
             self.assertNotIn("agents/openai.yaml", names)
         self.assertLessEqual(path.stat().st_size, 10 * 1024 * 1024)
 
+    def test_frontmatter_contains_natural_activation_language(self) -> None:
+        frontmatter = RELEASE.read_frontmatter(ROOT / "skill" / "hdf-blog-editor" / "SKILL.md")
+        description = frontmatter["description"].lower()
+        for phrase in ("hdf blog", "review the next blog", "seo or yoast", "alt text"):
+            self.assertIn(phrase, description)
+
     def test_build_is_reproducible(self) -> None:
         first = {
             path.name: hashlib.sha256(path.read_bytes()).hexdigest()

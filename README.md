@@ -20,10 +20,10 @@ You do not need to understand SEO, HTML or skill files to use it.
 
 | I use | Download |
 |---|---|
-| ChatGPT | `hdf-blog-editor-chatgpt-v1.1.0.zip` |
-| Claude | `hdf-blog-editor-claude-v1.1.0.zip` |
-| Google Antigravity | `hdf-blog-editor-antigravity-v1.1.0.zip` |
-| Perplexity Computer | `hdf-blog-editor-perplexity-v1.1.0.zip` |
+| ChatGPT | `hdf-blog-editor-chatgpt-v1.1.1.zip` |
+| Claude | `hdf-blog-editor-claude-v1.1.1.zip` |
+| Google Antigravity | `hdf-blog-editor-antigravity-v1.1.1.zip` |
+| Perplexity Computer | `hdf-blog-editor-perplexity-v1.1.1.zip` |
 
 Use only a ZIP from the official GitHub Releases page and, when possible, verify it against `SHA256SUMS`.
 
@@ -75,7 +75,7 @@ Do not edit files inside `dist/`. Change the canonical skill, run the release ch
 
 ## Current release
 
-Version **1.1.0**.
+Version **1.1.1**.
 
 The skill is an editorial assistant, not an authority for legal, safeguarding, religious or factual approval. HDF remains responsible for final publication decisions.
 

@@ -22,7 +22,7 @@
 - [ ] Complete [ACCEPTANCE-TESTS.md](ACCEPTANCE-TESTS.md).
 - [ ] Obtain HDF editorial-owner approval.
 - [ ] Merge the approved commit to `main`.
-- [ ] Create and push a signed or protected tag matching `VERSION`, such as `v1.1.0`.
+- [ ] Create and push a signed or protected tag matching `VERSION`, such as `v1.1.1`.
 - [ ] Confirm that GitHub Releases contains all four ZIPs, `SHA256SUMS` and `release-manifest.json`.
 - [ ] Download one published artifact and verify its checksum.
 - [ ] Announce the version and material changes to users.
