@@ -7,6 +7,7 @@ The same reviewed source is packaged for:
 - ChatGPT Skills
 - Claude Skills
 - Google Antigravity
+- Perplexity Computer Skills
 
 ## Start here
 
@@ -19,9 +20,10 @@ You do not need to understand SEO, HTML or skill files to use it.
 
 | I use | Download |
 |---|---|
-| ChatGPT | `hdf-blog-editor-chatgpt-v1.0.0.zip` |
-| Claude | `hdf-blog-editor-claude-v1.0.0.zip` |
-| Google Antigravity | `hdf-blog-editor-antigravity-v1.0.0.zip` |
+| ChatGPT | `hdf-blog-editor-chatgpt-v1.1.0.zip` |
+| Claude | `hdf-blog-editor-claude-v1.1.0.zip` |
+| Google Antigravity | `hdf-blog-editor-antigravity-v1.1.0.zip` |
+| Perplexity Computer | `hdf-blog-editor-perplexity-v1.1.0.zip` |
 
 Use only a ZIP from the official GitHub Releases page and, when possible, verify it against `SHA256SUMS`.
 
@@ -44,7 +46,7 @@ Use only a ZIP from the official GitHub Releases page and, when possible, verify
 
 ## Documentation
 
-- [Installation for ChatGPT, Claude and Antigravity](INSTALL.md)
+- [Installation for ChatGPT, Claude, Antigravity and Perplexity](INSTALL.md)
 - [Usage, inputs, modes and model recommendations](USAGE.md)
 - [How to update, test and release](CONTRIBUTING.md)
 - [Cross-platform acceptance tests](ACCEPTANCE-TESTS.md)
@@ -56,7 +58,7 @@ Use only a ZIP from the official GitHub Releases page and, when possible, verify
 ## Repository structure
 
 ```text
-hdf-blog-editor-release/
+hdf-blog-editor/
 ├── skill/hdf-blog-editor/       # Canonical source
 ├── adapters/antigravity/        # Platform-specific workflow
 ├── tools/release.py             # Validation and packaging
@@ -73,7 +75,7 @@ Do not edit files inside `dist/`. Change the canonical skill, run the release ch
 
 ## Current release
 
-Version **1.0.0**.
+Version **1.1.0**.
 
 The skill is an editorial assistant, not an authority for legal, safeguarding, religious or factual approval. HDF remains responsible for final publication decisions.
 

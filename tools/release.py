@@ -8,7 +8,6 @@ import hashlib
 import json
 import py_compile
 import re
-import shutil
 import subprocess
 import sys
 import zipfile
@@ -206,6 +205,13 @@ def build_antigravity(path: Path) -> None:
         write_entry(archive, install, "INSTALL-ANTIGRAVITY.md")
 
 
+def build_perplexity(path: Path) -> None:
+    """Build the Perplexity Computer layout with SKILL.md at archive root."""
+    with zipfile.ZipFile(path, "w") as archive:
+        for source, relative in iter_files(SKILL, exclude={"agents"}):
+            write_entry(archive, source, str(relative))
+
+
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as stream:
@@ -223,8 +229,14 @@ def validate_archive(path: Path, platform: str) -> None:
             raise ReleaseError(f"Unsafe path in {path.name}")
         if platform in {"chatgpt", "claude"}:
             prefix = "hdf-blog-editor/"
-        else:
+        elif platform == "antigravity":
             prefix = ".agent/skills/hdf-blog-editor/"
+        elif platform == "perplexity":
+            prefix = ""
+            if path.stat().st_size > 10 * 1024 * 1024:
+                raise ReleaseError(f"{path.name} exceeds Perplexity's 10 MB upload limit")
+        else:
+            raise ReleaseError(f"Unknown platform: {platform}")
         required = (
             f"{prefix}SKILL.md",
             f"{prefix}assets/full-retrofit-template.md",
@@ -251,10 +263,12 @@ def build() -> list[Path]:
         "chatgpt": DIST / f"hdf-blog-editor-chatgpt-v{VERSION}.zip",
         "claude": DIST / f"hdf-blog-editor-claude-v{VERSION}.zip",
         "antigravity": DIST / f"hdf-blog-editor-antigravity-v{VERSION}.zip",
+        "perplexity": DIST / f"hdf-blog-editor-perplexity-v{VERSION}.zip",
     }
     build_chatgpt(archives["chatgpt"])
     build_claude(archives["claude"])
     build_antigravity(archives["antigravity"])
+    build_perplexity(archives["perplexity"])
 
     for platform, path in archives.items():
         validate_archive(path, platform)

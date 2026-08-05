@@ -30,7 +30,7 @@ Never hand-edit files in `dist/`. They are generated release artifacts.
 6. Update `CHANGELOG.md` and `VERSION` using semantic versioning.
 7. Recheck the platform model guidance and update the review date in `USAGE.md` for every minor or major release.
 8. Request review from the HDF editorial owner.
-9. Run the applicable cases in [ACCEPTANCE-TESTS.md](ACCEPTANCE-TESTS.md) on ChatGPT, Claude and Antigravity.
+9. Run the applicable cases in [ACCEPTANCE-TESTS.md](ACCEPTANCE-TESTS.md) on ChatGPT, Claude, Antigravity and Perplexity Computer.
 10. Merge only after automated and human acceptance checks pass.
 11. Tag the approved commit, for example `v1.0.1`.
 12. Let the release workflow publish the generated files from `dist/` as release assets.

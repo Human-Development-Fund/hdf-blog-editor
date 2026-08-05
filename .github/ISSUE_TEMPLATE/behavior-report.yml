@@ -22,6 +22,7 @@ body:
         - ChatGPT
         - Claude
         - Google Antigravity
+        - Perplexity Computer
         - Other
     validations:
       required: true

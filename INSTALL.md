@@ -6,7 +6,7 @@ Choose your platform below. In every case, download the matching ZIP from the re
 
 Download:
 
-`hdf-blog-editor-chatgpt-v1.0.0.zip`
+`hdf-blog-editor-chatgpt-v1.1.0.zip`
 
 Then:
 
@@ -23,7 +23,7 @@ If Skills are unavailable in a managed workspace, ask the workspace administrato
 
 Download:
 
-`hdf-blog-editor-claude-v1.0.0.zip`
+`hdf-blog-editor-claude-v1.1.0.zip`
 
 Then:
 
@@ -41,7 +41,7 @@ Team and Enterprise administrators can provision the skill organization-wide ins
 
 Download:
 
-`hdf-blog-editor-antigravity-v1.0.0.zip`
+`hdf-blog-editor-antigravity-v1.1.0.zip`
 
 Then:
 
@@ -59,6 +59,23 @@ The package installs:
 
 If your Antigravity version uses its Skills interface, you may instead import the skill folder from `.agent/skills/hdf-blog-editor/`.
 
+## Perplexity Computer
+
+Download:
+
+`hdf-blog-editor-perplexity-v1.1.0.zip`
+
+Then:
+
+1. Open **Computer** in Perplexity. Custom Skills require access to Perplexity Computer.
+2. Go to the **Skills** page.
+3. Select **Create skill**, then **Upload a skill**.
+4. Upload the ZIP without extracting it.
+5. Confirm that **HDF Blog Editor** appears under **My Skills**.
+6. Start a new Computer task and type: **“I would like to review the next blog.”**
+
+The Perplexity package deliberately places `SKILL.md` at the ZIP root and stays below Perplexity's 10 MB upload limit.
+
 ## Updating
 
 Download the newest release and replace the old installation:
@@ -66,6 +83,7 @@ Download the newest release and replace the old installation:
 - ChatGPT: upload or install the new skill release through Skills.
 - Claude: upload the new ZIP with the same skill name; organization-managed deployments should be updated by an owner.
 - Antigravity: replace the existing `.agent/skills/hdf-blog-editor/` folder and workflow with the files from the new ZIP.
+- Perplexity Computer: upload the new ZIP from **Computer → Skills → Create skill → Upload a skill**.
 
 Start a fresh conversation after updating so the new instructions are loaded cleanly.
 

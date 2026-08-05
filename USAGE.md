@@ -94,6 +94,14 @@ Use Sonnet for normal production work and Opus when the quality gain justifies t
 
 Gemini 3.6 Flash is the preferred workhorse because Google positions it as the newer, more efficient knowledge-work and agentic model.
 
+### Perplexity Computer
+
+- **Recommended environment:** Perplexity Computer, where custom Skills are supported.
+- **Model choice:** Keep Computer's built-in multi-model orchestration for normal production work.
+- **Do not substitute:** A regular Ask or Pro Search thread does not provide the same custom-Skill workflow.
+
+Perplexity Computer selects and coordinates models for the task, so this release does not prescribe one underlying model. Judge consistency against the same behavioral and structural tests used for the other platforms.
+
 ### Official model references
 
 The recommendations above were checked against official platform guidance on 2026-08-05:
@@ -105,6 +113,8 @@ The recommendations above were checked against official platform guidance on 202
 - [Using custom Skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 - [Antigravity model availability](https://antigravity.google/docs/models?authuser=09)
 - [Antigravity Skills codelab](https://codelabs.developers.google.com/getting-started-agy-ide)
+- [Perplexity Computer Skills](https://www.perplexity.ai/help-center/en/articles/13914413-how-to-use-computer-skills)
+- [How Perplexity Computer works](https://www.perplexity.ai/help-center/en/articles/13837784-what-is-computer)
 
 When a named model is unavailable, use the strongest non-instant reasoning model the workspace permits for Full Retrofits. Faster or smaller models remain suitable for field mapping and simple structural checks, but not for final sensitive copy.
 
