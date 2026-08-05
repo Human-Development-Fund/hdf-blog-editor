@@ -17,6 +17,7 @@ Test the same candidate version in:
 | ChatGPT | Recommended High-reasoning model in `USAGE.md` | Pass |
 | Claude | Recommended Sonnet model in `USAGE.md` | Pass |
 | Antigravity | Recommended High-effort Gemini model in `USAGE.md` | Pass |
+| Perplexity Computer | Computer's built-in multi-model orchestration | Pass |
 
 An optional second pass with each platform's strongest model helps distinguish a skill problem from a model-capability problem.
 
@@ -38,7 +39,7 @@ An optional second pass with each platform's strongest model helps distinguish a
    python3 scripts/check_markup.py post.html
    ```
 
-7. Compare the three platforms for material differences in facts, tone, fields, links and image guidance.
+7. Compare the four platforms for material differences in facts, tone, fields, links and image guidance.
 
 ## Pass criteria
 

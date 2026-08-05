@@ -23,7 +23,7 @@ class ReleaseTests(unittest.TestCase):
 
     def test_builds_expected_archives(self) -> None:
         paths = RELEASE.build()
-        self.assertEqual(len(paths), 3)
+        self.assertEqual(len(paths), 4)
         for path in paths:
             self.assertTrue(path.is_file())
             self.assertGreater(path.stat().st_size, 0)
@@ -46,6 +46,17 @@ class ReleaseTests(unittest.TestCase):
             self.assertIn(".agent/skills/hdf-blog-editor/SKILL.md", names)
             self.assertIn(".agent/skills/hdf-blog-editor/scripts/check_retrofit.py", names)
             self.assertIn(".agents/workflows/review-hdf-blog.md", names)
+
+    def test_perplexity_has_skill_at_archive_root(self) -> None:
+        RELEASE.build()
+        path = ROOT / "dist" / f"hdf-blog-editor-perplexity-v{RELEASE.VERSION}.zip"
+        with zipfile.ZipFile(path) as archive:
+            names = archive.namelist()
+            self.assertIn("SKILL.md", names)
+            self.assertIn("scripts/check_retrofit.py", names)
+            self.assertNotIn("hdf-blog-editor/SKILL.md", names)
+            self.assertNotIn("agents/openai.yaml", names)
+        self.assertLessEqual(path.stat().st_size, 10 * 1024 * 1024)
 
     def test_build_is_reproducible(self) -> None:
         first = {

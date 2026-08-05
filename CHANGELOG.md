@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0 - 2026-08-05
+
+- Added a Perplexity Computer package with `SKILL.md` at the ZIP root.
+- Added Perplexity installation, usage, model-orchestration and acceptance-test guidance.
+- Added deterministic checks for Perplexity's archive layout and 10 MB upload limit.
+
 ## 1.0.0 - 2026-08-05
 
 - Added natural activation and nine task modes.
