@@ -29,6 +29,7 @@ When the request is broad, begin with the material supplied and return the most 
 - Read `references/house-style.md` before editing prose or image fields.
 - Read `references/wordpress-retrofit.md` before interpreting WordPress, Yoast, HTML, or Media Library captures.
 - Read `references/output-contract.md` before delivering a retrofit.
+- Use `assets/full-retrofit-template.md` as the starting structure for every Full retrofit.
 
 ## Route the request
 
@@ -144,6 +145,6 @@ Run `python3 scripts/check_markup.py post.html` from the skill directory, or res
 
 ## Deliver and iterate
 
-For a Full retrofit, follow `references/output-contract.md` and default to a polished `.md` deliverable rather than placing the entire package inline in chat. Include both a complete readable Markdown preview and matching copy-ready WordPress HTML. Position confirmed inline images inside both versions where they support the story, and state each placement explicitly. For every other mode, return only the sections useful to that request; do not force the complete retrofit template. Separate publishable copy from editor-only implementation notes. Include only material findings.
+For a Full retrofit, follow `references/output-contract.md`, start from `assets/full-retrofit-template.md`, and default to a polished `.md` deliverable rather than placing the entire package inline in chat. Include both a complete readable Markdown preview and matching copy-ready WordPress HTML. Position confirmed inline images inside both versions where they support the story, and state each placement explicitly. Validate the finished file with `python3 scripts/check_retrofit.py deliverable.md`. For every other mode, return only the sections useful to that request; do not force the complete retrofit template. Separate publishable copy from editor-only implementation notes. Include only material findings.
 
 After the user publishes, record durable lessons in this skill or its references. Do not bury confirmed HDF rules only in conversation history.

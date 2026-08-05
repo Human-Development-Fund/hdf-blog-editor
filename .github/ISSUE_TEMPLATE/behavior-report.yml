@@ -1,0 +1,51 @@
+name: Behavior report
+description: Report an incorrect, inconsistent or unclear skill result using sanitized material.
+title: "[Behavior]: "
+labels:
+  - behavior
+body:
+  - type: markdown
+    attributes:
+      value: Do not include donor, beneficiary, credential or unpublished partner information.
+  - type: input
+    id: version
+    attributes:
+      label: Skill version
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - ChatGPT
+        - Claude
+        - Google Antigravity
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Model and reasoning level
+    validations:
+      required: true
+  - type: textarea
+    id: prompt
+    attributes:
+      label: Prompt and sanitized inputs
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: What happened
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true

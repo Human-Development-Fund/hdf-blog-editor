@@ -63,8 +63,6 @@ A Full Retrofit should be delivered as a downloadable Markdown file containing:
 9. Material editorial decisions.
 10. Confirmed facts and unresolved items.
 
-It should not include an Excerpt field.
-
 ## Model recommendations
 
 Reviewed: **2026-08-05**. Review model guidance before every minor or major release.
@@ -95,6 +93,20 @@ Use Sonnet for normal production work and Opus when the quality gain justifies t
 - **Alternative deep-reasoning comparison:** Gemini 3.1 Pro at **High**, if available.
 
 Gemini 3.6 Flash is the preferred workhorse because Google positions it as the newer, more efficient knowledge-work and agentic model.
+
+### Official model references
+
+The recommendations above were checked against official platform guidance on 2026-08-05:
+
+- [GPT-5.6 in ChatGPT](https://help.openai.com/en/articles/20001354-gpt-5-6-in-chatgpt)
+- [ChatGPT Skills](https://help.openai.com/en/articles/20001066)
+- [Claude model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
+- [Claude model and consumption guidance](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)
+- [Using custom Skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+- [Antigravity model availability](https://antigravity.google/docs/models?authuser=09)
+- [Antigravity Skills codelab](https://codelabs.developers.google.com/getting-started-agy-ide)
+
+When a named model is unavailable, use the strongest non-instant reasoning model the workspace permits for Full Retrofits. Faster or smaller models remain suitable for field mapping and simple structural checks, but not for final sensitive copy.
 
 ## Consistency practices
 

@@ -43,15 +43,35 @@ def read_frontmatter(path: Path) -> dict[str, str]:
 
 
 def check_skill() -> None:
+    repository_required = [
+        ROOT / "README.md",
+        ROOT / "INSTALL.md",
+        ROOT / "USAGE.md",
+        ROOT / "CONTRIBUTING.md",
+        ROOT / "SECURITY.md",
+        ROOT / "SUPPORT.md",
+        ROOT / "CHANGELOG.md",
+        ROOT / "ACCEPTANCE-TESTS.md",
+        ROOT / "RELEASE-CHECKLIST.md",
+        ROOT / ".github" / "CODEOWNERS",
+        ROOT / ".github" / "workflows" / "validate.yml",
+        ROOT / ".github" / "workflows" / "release.yml",
+    ]
     required = [
         SKILL / "SKILL.md",
         SKILL / "agents" / "openai.yaml",
         SKILL / "references" / "house-style.md",
         SKILL / "references" / "wordpress-retrofit.md",
         SKILL / "references" / "output-contract.md",
+        SKILL / "assets" / "full-retrofit-template.md",
         SKILL / "scripts" / "check_markup.py",
+        SKILL / "scripts" / "check_retrofit.py",
     ]
-    missing = [str(path.relative_to(ROOT)) for path in required if not path.is_file()]
+    missing = [
+        str(path.relative_to(ROOT))
+        for path in repository_required + required
+        if not path.is_file()
+    ]
     if missing:
         raise ReleaseError(f"Missing required files: {', '.join(missing)}")
 
@@ -65,12 +85,12 @@ def check_skill() -> None:
     if len(frontmatter["description"]) > 200:
         raise ReleaseError("Description exceeds Claude's 200-character limit")
 
-    skill_text = "\n".join(
+    instruction_text = "\n".join(
         path.read_text(encoding="utf-8")
         for path in sorted(SKILL.rglob("*"))
-        if path.is_file()
+        if path.is_file() and "scripts" not in path.parts
     )
-    lower = skill_text.lower()
+    lower = instruction_text.lower()
     for forbidden in ("/users/", "todo", "excerpt"):
         if forbidden in lower:
             raise ReleaseError(f"Forbidden source text found in canonical skill: {forbidden}")
@@ -84,10 +104,13 @@ def check_skill() -> None:
             raise ReleaseError(f"Output contract is missing: {phrase}")
 
     py_compile.compile(str(SKILL / "scripts" / "check_markup.py"), doraise=True)
+    py_compile.compile(str(SKILL / "scripts" / "check_retrofit.py"), doraise=True)
 
     for document in (ROOT / "README.md", ROOT / "INSTALL.md"):
         if VERSION not in document.read_text(encoding="utf-8"):
             raise ReleaseError(f"{document.name} does not mention current version {VERSION}")
+    if RELEASE_DATE not in (ROOT / "USAGE.md").read_text(encoding="utf-8"):
+        raise ReleaseError("USAGE.md model guidance review date does not match RELEASE_DATE")
 
 
 def check_markup_fixtures() -> None:
@@ -103,6 +126,23 @@ def check_markup_fixtures() -> None:
         if result.returncode != expected:
             raise ReleaseError(
                 f"Markup fixture {filename} returned {result.returncode}, expected {expected}\n{result.stdout}{result.stderr}"
+            )
+
+
+def check_retrofit_fixtures() -> None:
+    checker = SKILL / "scripts" / "check_retrofit.py"
+    cases = (("retrofit.md", 0), ("invalid-retrofit.md", 1))
+    for filename, expected in cases:
+        result = subprocess.run(
+            [sys.executable, str(checker), str(FIXTURES / filename)],
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode != expected:
+            raise ReleaseError(
+                f"Retrofit fixture {filename} returned {result.returncode}, expected {expected}\n"
+                f"{result.stdout}{result.stderr}"
             )
 
 
@@ -182,11 +222,18 @@ def validate_archive(path: Path, platform: str) -> None:
         if any(name.startswith("/") or ".." in Path(name).parts for name in names):
             raise ReleaseError(f"Unsafe path in {path.name}")
         if platform in {"chatgpt", "claude"}:
-            required = "hdf-blog-editor/SKILL.md"
+            prefix = "hdf-blog-editor/"
         else:
-            required = ".agent/skills/hdf-blog-editor/SKILL.md"
-        if required not in names:
-            raise ReleaseError(f"Missing {required} in {path.name}")
+            prefix = ".agent/skills/hdf-blog-editor/"
+        required = (
+            f"{prefix}SKILL.md",
+            f"{prefix}assets/full-retrofit-template.md",
+            f"{prefix}scripts/check_markup.py",
+            f"{prefix}scripts/check_retrofit.py",
+        )
+        missing = [name for name in required if name not in names]
+        if missing:
+            raise ReleaseError(f"Missing {', '.join(missing)} in {path.name}")
 
 
 def build() -> list[Path]:
@@ -237,8 +284,9 @@ def main() -> int:
 
     check_skill()
     check_markup_fixtures()
+    check_retrofit_fixtures()
     check_evals()
-    print("Canonical skill, fixtures and evaluation definitions passed.")
+    print("Canonical skill, markup fixtures, retrofit fixtures and evaluation definitions passed.")
 
     if args.command in {"build", "all"}:
         archives = build()

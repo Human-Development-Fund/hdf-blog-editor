@@ -10,5 +10,6 @@
 - Added exact image-placement guidance.
 - Removed the Excerpt field from all output requirements.
 - Added final refinement and pre-delivery gates.
-- Added deterministic checks for structural markup, copied ChatGPT wrappers, ChatGPT tracking parameters and empty link targets.
+- Added a canonical ten-section Full Retrofit template.
+- Added deterministic checks for retrofit structure, preview/HTML heading parity, structural markup, copied ChatGPT wrappers, tracking parameters and empty link targets.
 - Added ChatGPT, Claude and Antigravity release packages, documentation and automated tests.

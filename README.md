@@ -17,6 +17,14 @@ The same reviewed source is packaged for:
 
 You do not need to understand SEO, HTML or skill files to use it.
 
+| I use | Download |
+|---|---|
+| ChatGPT | `hdf-blog-editor-chatgpt-v1.0.0.zip` |
+| Claude | `hdf-blog-editor-claude-v1.0.0.zip` |
+| Google Antigravity | `hdf-blog-editor-antigravity-v1.0.0.zip` |
+
+Use only a ZIP from the official GitHub Releases page and, when possible, verify it against `SHA256SUMS`.
+
 ## What it does
 
 - Reviews an existing HDF post without rewriting it unless requested.
@@ -33,13 +41,14 @@ You do not need to understand SEO, HTML or skill files to use it.
 - Treat an HDF page as independent verification of a claim.
 - Change a published URL merely to satisfy Yoast.
 - Add donation requests to every post.
-- Include an Excerpt field in the handoff.
 
 ## Documentation
 
 - [Installation for ChatGPT, Claude and Antigravity](INSTALL.md)
 - [Usage, inputs, modes and model recommendations](USAGE.md)
 - [How to update, test and release](CONTRIBUTING.md)
+- [Cross-platform acceptance tests](ACCEPTANCE-TESTS.md)
+- [Production release checklist](RELEASE-CHECKLIST.md)
 - [Privacy and security guidance](SECURITY.md)
 - [Support and troubleshooting](SUPPORT.md)
 - [Release history](CHANGELOG.md)
@@ -52,6 +61,7 @@ hdf-blog-editor-release/
 ├── adapters/antigravity/        # Platform-specific workflow
 ├── tools/release.py             # Validation and packaging
 ├── tests/fixtures/              # Consistency fixtures
+├── tests/evals.json             # Cross-platform behavioral cases
 ├── dist/                        # Generated release ZIPs
 ├── README.md
 ├── INSTALL.md

@@ -69,6 +69,18 @@ Download the newest release and replace the old installation:
 
 Start a fresh conversation after updating so the new instructions are loaded cleanly.
 
+## Optional download verification
+
+Each release includes `SHA256SUMS`. This lets a maintainer confirm that a downloaded ZIP is byte-for-byte identical to the published artifact.
+
+On macOS or Linux, place the ZIP and `SHA256SUMS` in the same folder and run:
+
+```bash
+shasum -a 256 -c SHA256SUMS
+```
+
+On Windows PowerShell, run `Get-FileHash <zip-name> -Algorithm SHA256` and compare the result with the matching line in `SHA256SUMS`.
+
 ## Verifying the installation
 
 Try these prompts in a fresh conversation:

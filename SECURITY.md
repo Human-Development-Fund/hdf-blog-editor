@@ -14,9 +14,9 @@ Redact sensitive information before attaching WordPress captures to any model.
 
 ## Treat uploaded skills as code
 
-The skill contains an executable Python checker. Review scripts before installing a downloaded release and use only artifacts from the official repository or workspace library.
+The skill contains executable Python checkers. Review the scripts before installing a downloaded release and use only artifacts from the official repository or workspace library.
 
-The included checker uses the Python standard library, reads the supplied HTML and prints diagnostics. It does not require network access or modify the input file.
+The included checkers use the Python standard library, read the supplied HTML or Markdown and print diagnostics. They do not require network access or modify the input files.
 
 ## Reporting a concern
 

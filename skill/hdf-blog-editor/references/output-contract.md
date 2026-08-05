@@ -1,6 +1,6 @@
 # Retrofit output contract
 
-Return a polished Markdown artifact in this order. For a Full retrofit, save the artifact as a clearly named `.md` file by default and provide only a concise link and handoff summary in chat. Use inline delivery only when the user requests it or the result is a small focused edit.
+Start from `assets/full-retrofit-template.md` and return a polished Markdown artifact in that order. For a Full retrofit, save the artifact as a clearly named `.md` file by default and provide only a concise link and handoff summary in chat. Use inline delivery only when the user requests it or the result is a small focused edit.
 
 Make the document easy to operate from WordPress:
 
@@ -26,7 +26,7 @@ Make the document easy to operate from WordPress:
 
 ## Revised post
 
-First provide the complete readable article under **Reader preview** using Markdown headings, links, lists, emphasis and inline images. Then provide the same publishable article as clean WordPress HTML in one copy-ready code block. Use one H1 only when the title must be represented in the HTML artifact, descriptive H2s, restrained emphasis and descriptive links.
+First provide the complete readable article under **Reader preview** using an H3 for the visible title and H4s for article sections, followed by links, lists, emphasis and inline images as needed. Then provide the same publishable article as clean WordPress HTML in one copy-ready code block, mapping the preview's H4 article headings to H2s. Use one H1 only when the title must be represented in the HTML artifact, descriptive H2s, restrained emphasis and descriptive links.
 
 Do not place verification markers inside publishable copy unless the user explicitly wants inline placeholders.
 
@@ -57,3 +57,4 @@ Before handing off a Full retrofit, confirm that:
 - Published slugs remain unchanged unless a redirect plan is explicitly authorized.
 - The final refinement check in `house-style.md` passes.
 - `scripts/check_markup.py` passes against the copy-ready HTML, with any non-blocking image observations reviewed manually.
+- `scripts/check_retrofit.py` passes against the finished Markdown deliverable.

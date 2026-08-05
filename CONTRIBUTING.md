@@ -22,6 +22,7 @@ Never hand-edit files in `dist/`. They are generated release artifacts.
 
    ```bash
    python3 tools/release.py check
+   python3 -m unittest discover -s tests -v
    python3 tools/release.py build
    ```
 
@@ -29,9 +30,10 @@ Never hand-edit files in `dist/`. They are generated release artifacts.
 6. Update `CHANGELOG.md` and `VERSION` using semantic versioning.
 7. Recheck the platform model guidance and update the review date in `USAGE.md` for every minor or major release.
 8. Request review from the HDF editorial owner.
-9. Merge only after automated checks pass.
-10. Tag the approved commit, for example `v1.0.1`.
-11. Publish the generated files from `dist/` as release assets.
+9. Run the applicable cases in [ACCEPTANCE-TESTS.md](ACCEPTANCE-TESTS.md) on ChatGPT, Claude and Antigravity.
+10. Merge only after automated and human acceptance checks pass.
+11. Tag the approved commit, for example `v1.0.1`.
+12. Let the release workflow publish the generated files from `dist/` as release assets.
 
 ## Versioning
 
@@ -54,6 +56,8 @@ Every behavioral change should be reviewed for:
 ## Release ownership
 
 Assign one HDF owner to approve production releases and at least one backup reviewer. The owner should verify the changelog, test results and example outputs before a release is published.
+
+GitHub CODEOWNERS currently routes repository review to `@developerjamiu`. Replace or supplement this handle when HDF appoints additional maintainers.
 
 ## Rollback
 
